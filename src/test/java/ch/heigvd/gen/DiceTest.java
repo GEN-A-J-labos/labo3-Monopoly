@@ -14,7 +14,7 @@ class DiceTest {
         // 100000 should be enough to be sure
         for (int i = 0; i < 100000; i++) {
             dice.roll();
-            
+
             if (dice.getFaceValue() > 6 || dice.getFaceValue() < 1) {
                 fail();
             }
