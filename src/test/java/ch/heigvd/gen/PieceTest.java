@@ -1,4 +1,7 @@
 package ch.heigvd.gen;
 
-public class PieceTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class PieceTest {
+
 }

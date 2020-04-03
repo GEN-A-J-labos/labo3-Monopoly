@@ -1,4 +1,7 @@
 package ch.heigvd.gen;
 
-public class MonopolyGameTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class MonopolyGameTest {
+
 }
