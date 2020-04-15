@@ -15,15 +15,8 @@ class SquareTest {
     @Test
     public void SquareNameShouldBeInitCorrectly() {
 
-        Square square = new Square("Test", 0);
+        Square square = new Square("Test");
         assertEquals("Test", square.getName());
-    }
-
-    @Test
-    public void SquarePositionInBoardShouldInitCorrectly() {
-
-        Square square = new Square("Test", 0);
-        assertEquals(0, square.getPositionInBoard());
     }
 
 }

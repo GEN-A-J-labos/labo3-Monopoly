@@ -15,7 +15,7 @@ class PieceTest {
     @Test
     public void currentPositionShouldBeInitCorrectly() {
 
-        Square square = new Square("Go", 0);
+        Square square = new Square("Go");
         Piece piece = new Piece("Test", square);
 
         assertEquals("Go", piece.getCurrentPosition().getName());
@@ -24,8 +24,8 @@ class PieceTest {
     @Test
     public void currentPositionShouldBeSetCorrectly() {
 
-        Square square1 = new Square("Bad", 0);
-        Square square2 = new Square("Good", 0);
+        Square square1 = new Square("Bad");
+        Square square2 = new Square("Good");
         Piece piece = new Piece("Test", square1);
 
         piece.setCurrentPosition(square2);
@@ -37,14 +37,14 @@ class PieceTest {
     @Test
     public void nameShouldBeInitCorrectly() {
 
-        Piece piece = new Piece("this is great", new Square("Go", 0));
+        Piece piece = new Piece("this is great", new Square("Go"));
         assertEquals("this is great", piece.getName());
     }
 
     @Test
     public void nameShouldBeSetCorrectly() {
 
-        Piece piece = new Piece("this is not great", new Square("Go", 0));
+        Piece piece = new Piece("this is not great", new Square("Go"));
         piece.setName("this is great");
         assertEquals("this is great", piece.getName());
     }
