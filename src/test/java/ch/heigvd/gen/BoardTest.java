@@ -6,51 +6,29 @@
 
 package ch.heigvd.gen;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
+    private Board board;
+
+    @BeforeEach
+    void initBoard() {
+
+        board = new Board();
+    }
+
     @Test
     void SquareZeroShouldBeCalledGo() {
-
-        Board board = new Board();
 
         assertEquals("Go", board.getGoSquare().getName());
     }
 
     @Test
-    void SquareZeroShouldHaveIndexZeroOnBoard() {
-
-        Board board = new Board();
-
-        assertEquals(0, board.getGoSquare().getPositionInBoard());
-    }
-
-    @Test
-    void NextSquareShouldReturnCorrectIndex() {
-
-        Board board = new Board();
-
-        Square square = board.getGoSquare();
-        Square newSquare = board.getNewPosition(square, 6);
-
-        // Test normal position update
-        assertEquals(6, newSquare.getPositionInBoard());
-
-        // Get on last cell
-        newSquare = board.getNewPosition(square, 39);
-        // Pass over Go position
-        newSquare = board.getNewPosition(newSquare, 3);
-
-        assertEquals(2, newSquare.getPositionInBoard());
-    }
-
-    @Test
     void NextSquareShouldReturnCorrectName() {
-
-        Board board = new Board();
 
         Square square = board.getGoSquare();
         Square newSquare = board.getNewPosition(square, 6);
