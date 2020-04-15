@@ -2,8 +2,8 @@ package ch.heigvd.gen;
 
 public class RegularSquare extends Square {
 
-    public RegularSquare(String name, int positionInBoard) {
-        super(name, positionInBoard);
+    public RegularSquare(String name) {
+        super(name);
     }
 
     @Override

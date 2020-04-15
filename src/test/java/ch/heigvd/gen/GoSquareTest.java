@@ -2,19 +2,25 @@ package ch.heigvd.gen;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GoSquareTest {
 
     @Test
     void testIncreaseAmount() {
-        Player player = new Player("PlayerName",null,null);
-        GoSquare goSquare = new GoSquare("GoSquare", 0);
+        Board board = new Board();
+        Player player = new Player("PlayerName",board,null);
+
         int worthBefore = player.getNetWorth();
-        goSquare.landedOn(player);
+        board.getGoSquare().landedOn(player);
         int worthAfter = player.getNetWorth();
-        assertEquals(worthAfter, worthBefore + 200);
+
+        assertEquals(worthBefore + 200, worthAfter);
+    }
+
+    @Test
+    public void GoSquareShouldBeNamedGO() {
+        Square square = new GoSquare();
+        assertEquals("Go", square.getName());
     }
 }

@@ -38,10 +38,9 @@ public class Player {
         newPosition.landedOn(this);
     }
 
-    public void setLocation(String squareName){
-        throw null;//TODO implmement
-        Square newPosition = board.getSquareByName(squareName);
-        piece.setCurrentPosition(newPosition);
+    public void setLocation(Square square){
+        piece.setCurrentPosition(square);
+        square.landedOn(this);
     }
 
     public Piece getPiece() {
@@ -57,6 +56,6 @@ public class Player {
     }
 
     public void decreaseCash(int amount){
-
+        cash -= amount;
     }
 }

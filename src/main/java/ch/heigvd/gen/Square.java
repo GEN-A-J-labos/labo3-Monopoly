@@ -18,6 +18,6 @@ public abstract class Square {
     public String getName() {
         return name;
     }
-    
+
     public abstract void landedOn(Player player);
 }

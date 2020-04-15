@@ -8,6 +8,8 @@ package ch.heigvd.gen;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,5 +44,24 @@ class BoardTest {
         newSquare = board.getNewPosition(newSquare, 1);
 
         assertEquals("Go", newSquare.getName());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Go", "IncomeTax", "Jail", "GoToJail"})
+    void BoardShouldHaveAtLeastListedSquares(String squareToTest) {
+
+        boolean found = false;
+        Square go = board.getGoSquare();
+        Square tmp;
+
+        for (int i = 0; i < 40; i++) {
+            tmp = board.getNewPosition(go, i);
+            if (tmp.getName().equals(squareToTest)) {
+                found = true;
+                break;
+            }
+        }
+
+        assertTrue(found);
     }
 }
