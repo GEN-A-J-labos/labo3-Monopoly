@@ -22,13 +22,13 @@ public class Board {
         Square jail = new RegularSquare("Jail");
 
         for (int i = 1; i < NB_SQUARES; i++) {
-            if(i == 10){
+            if (i == 10) {
                 squares.add(jail);
-            }else if(i == 30) {
+            } else if (i == 30) {
                 squares.add(new GoToJailSquare(jail));
-            }else if(i == 4){
+            } else if (i == 4) {
                 squares.add(new IncomeTaxSquare(0.1));
-            }else{
+            } else {
                 squares.add(new RegularSquare("Square " + i));
             }
         }

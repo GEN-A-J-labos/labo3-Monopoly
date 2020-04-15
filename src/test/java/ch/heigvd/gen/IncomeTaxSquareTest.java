@@ -1,7 +1,11 @@
+/*
+ *  GEN - Laboratoire 03 - Bonzon Ludovic, Bourqui Denis, Müller Nicolas
+ *
+ *  Modified on 15.04.2020
+ */
+
 package ch.heigvd.gen;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 

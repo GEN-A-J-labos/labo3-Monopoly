@@ -1,7 +1,7 @@
 /*
  *  GEN - Laboratoire 03 - Bonzon Ludovic, Bourqui Denis, Müller Nicolas
  *
- *  Modified on 03.04.2020
+ *  Modified on 15.04.2020
  */
 
 package ch.heigvd.gen;
@@ -11,29 +11,24 @@ public class Player {
 
     private String name;
     private Board board;
-    private Dice[] dices;
+    private Cup cup;
     private Piece piece;
     private int cash;
 
-    public Player(String name, Board board, Dice[] dices) {
+    public Player(String name, Board board, Cup cup) {
         this.cash = 1500;
         this.name = name;
         this.board = board;
-        this.dices = dices;
+        this.cup = cup;
         this.piece = new Piece("Piece" + name, board.getGoSquare());
     }
 
     public void takeTurn() {
 
-        int totalRollValue = 0;
-
-        for (Dice d : dices) {
-            d.roll();
-            totalRollValue += d.getFaceValue();
-        }
+        cup.roll();
 
         Square oldPosition = piece.getCurrentPosition();
-        Square newPosition = board.getNewPosition(oldPosition, totalRollValue);
+        Square newPosition = board.getNewPosition(oldPosition, cup.getTotal());
         piece.setCurrentPosition(newPosition);
         newPosition.landedOn(this);
     }

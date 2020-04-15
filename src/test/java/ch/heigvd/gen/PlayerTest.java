@@ -1,3 +1,9 @@
+/*
+ *  GEN - Laboratoire 03 - Bonzon Ludovic, Bourqui Denis, Müller Nicolas
+ *
+ *  Modified on 15.04.2020
+ */
+
 package ch.heigvd.gen;
 
 import org.junit.jupiter.api.RepeatedTest;
@@ -10,17 +16,13 @@ class PlayerTest {
     void playerShouldMoveCorrectDistance() {
 
         Board board = new Board();
-        Dice dices[] = new Dice[]{new Dice(), new Dice()};
-        Player player = new Player("playername", board, dices);
+        Cup cup = new Cup(2);
+        Player player = new Player("playername", board, cup);
 
         player.takeTurn();
 
-        int dicesValue = 0;
-        for (Dice d : dices) {
-            dicesValue += d.getFaceValue();
-        }
-
-        String squareName = "Square ";
-        assertEquals(board.getNewPosition(board.getGoSquare(), dicesValue).getName(), player.getPiece().getCurrentPosition().getName());
+        // Teste la position courante avec la position voulue
+        assertEquals(board.getNewPosition(board.getGoSquare(), cup.getTotal()).getName(),
+                     player.getPiece().getCurrentPosition().getName());
     }
 }
