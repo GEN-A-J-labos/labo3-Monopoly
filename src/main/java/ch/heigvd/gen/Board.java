@@ -6,6 +6,8 @@
 
 package ch.heigvd.gen;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public class Board {
 
     private static final int NB_SQUARES = 40;
@@ -33,5 +35,9 @@ public class Board {
         int newIndex = (oldPosition.getPositionInBoard() + diceValue) % NB_SQUARES;
 
         return squares[newIndex];
+    }
+
+    public Square getSquareByName(String name){
+        throw new NotImplementedException();
     }
 }
