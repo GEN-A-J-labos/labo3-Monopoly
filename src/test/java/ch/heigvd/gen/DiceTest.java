@@ -6,25 +6,22 @@
 
 package ch.heigvd.gen;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DiceTest {
 
-    @Test
+    // 1000 should be enough to be sure
+    @RepeatedTest(1000)
     public void numbersShouldBeBetweenOneAndSix() {
 
         Dice dice = new Dice();
 
-        // 100000 should be enough to be sure
-        for (int i = 0; i < 100000; i++) {
-            dice.roll();
+        dice.roll();
 
-            if (dice.getFaceValue() > 6 || dice.getFaceValue() < 1) {
-                fail();
-            }
+        if (dice.getFaceValue() > 6 || dice.getFaceValue() < 1) {
+            fail();
         }
     }
-
 }
