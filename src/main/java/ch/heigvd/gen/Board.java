@@ -18,10 +18,19 @@ public class Board {
 
         squares = new ArrayList<>();
 
-        squares.add(new Square("Go"));
+        squares.add(new GoSquare());
+        Square jail = new RegularSquare("Jail");
 
         for (int i = 1; i < NB_SQUARES; i++) {
-            squares.add(new Square("Square " + i));
+            if(i == 10){
+                squares.add(jail);
+            }else if(i == 30) {
+                squares.add(new GoToJailSquare(jail));
+            }else if(i == 4){
+                squares.add(new IncomeTaxSquare(0.1));
+            }else{
+                squares.add(new RegularSquare("Square " + i));
+            }
         }
     }
 
@@ -36,4 +45,5 @@ public class Board {
 
         return squares.get(newIndex);
     }
+
 }

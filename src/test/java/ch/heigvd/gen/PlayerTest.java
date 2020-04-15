@@ -1,12 +1,12 @@
 package ch.heigvd.gen;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    @Test
+    @RepeatedTest(100)
     void playerShouldMoveCorrectDistance() {
 
         Board board = new Board();
@@ -21,6 +21,6 @@ class PlayerTest {
         }
 
         String squareName = "Square ";
-        assertEquals(squareName + dicesValue, player.getPiece().getCurrentPosition().getName());
+        assertEquals(board.getNewPosition(board.getGoSquare(), dicesValue).getName(), player.getPiece().getCurrentPosition().getName());
     }
 }

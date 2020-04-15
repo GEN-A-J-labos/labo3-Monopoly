@@ -6,7 +6,7 @@
 
 package ch.heigvd.gen;
 
-public class Square {
+public abstract class Square {
 
     private String name;
 
@@ -19,4 +19,5 @@ public class Square {
         return name;
     }
 
+    public abstract void landedOn(Player player);
 }
