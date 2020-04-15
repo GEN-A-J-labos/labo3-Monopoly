@@ -1,7 +1,7 @@
 /*
  *  GEN - Laboratoire 03 - Bonzon Ludovic, Bourqui Denis, Müller Nicolas
  *
- *  Modified on 03.04.2020
+ *  Modified on 15.04.2020
  */
 
 package ch.heigvd.gen;
@@ -10,17 +10,19 @@ import java.util.ArrayList;
 
 public class MonopolyGame {
     private Board board;
-    private Dice[] dices;
+    private Cup cup;
     private ArrayList<Player> players;
     private int roundCount;
 
     public MonopolyGame(int playerCount, int roundCount) {
-        dices = new Dice[]{new Dice(), new Dice()};
+
+        cup = new Cup(2);
         board = new Board();
         this.roundCount = roundCount;
-        players = new ArrayList();
+        players = new ArrayList<>();
+
         for (int i = 0; i < playerCount; i++) {
-            players.add(new Player("Player " + i, board, dices));
+            players.add(new Player("Player " + i, board, cup));
         }
     }
 
@@ -31,8 +33,8 @@ public class MonopolyGame {
     }
 
     private void playRound(){
-        for(int playersTurn = 0; playersTurn < players.size() ; playersTurn++) {
-            players.get(playersTurn).takeTurn();
+        for (Player player : players) {
+            player.takeTurn();
         }
     }
 }
