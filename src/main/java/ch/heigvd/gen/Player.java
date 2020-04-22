@@ -24,13 +24,13 @@ public class Player {
     }
 
     public void takeTurn() {
-
         cup.roll();
-
+        System.out.println(name + " rolled " + cup.getTotal() + (cup.getTotal()==12?" they see me roolin'":""));
         Square oldPosition = piece.getCurrentPosition();
         Square newPosition = board.getNewPosition(oldPosition, cup.getTotal());
         piece.setCurrentPosition(newPosition);
         newPosition.landedOn(this);
+        System.out.println(name + " arrived on square: " + piece.getCurrentPosition().getName());
     }
 
     public void setLocation(Square square){
